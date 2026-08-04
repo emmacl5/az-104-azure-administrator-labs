@@ -124,13 +124,13 @@ I created a new cloud-only user with the following configuration.
 
 | Setting | Value |
 |----------|-------|
-| User Principal Name | az104-user1 |
-| Display Name | az104-user1 |
+| User Principal Name | opettaja_1 |
+| Display Name | opettaja_1 |
 | Password | Auto-generated |
 | Account Enabled | Yes |
 | Job Title | IT Lab Administrator |
 | Department | IT |
-| Usage Location | United States |
+
 
 After the user was created, I refreshed the Users page and verified that the account appeared successfully.
 

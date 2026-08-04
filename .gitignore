@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+
+# Environment variables and secrets
+.env
+.env.*
+*.secret
+*.secrets
+credentials.*
+secrets.*
+
+# Azure CLI local configuration
+.azure/
+azureProfile.json
+clouds.config
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+
+# Certificates and private keys
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Temporary files
+*.log
+*.tmp

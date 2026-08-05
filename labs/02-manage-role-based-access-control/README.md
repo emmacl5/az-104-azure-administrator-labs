@@ -241,7 +241,7 @@ Unlike Contributor, this role grants permissions specifically for Azure Blob Sto
 
 ## Screenshot
 
-![Storage Blob Data Operator](screenshots/08-storage-role-assigned.png)
+![Storage Blob Data Operator](screenshots/09-storage-role-assigned.png)
 
 ---
 

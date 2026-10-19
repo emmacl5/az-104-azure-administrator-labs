@@ -176,6 +176,34 @@ Security Groups simplify permission management by allowing administrators to ass
 
 ---
 
+## Task 6 - Configure IT Lab Administrators Security Group
+
+I created and verified an additional Microsoft Entra ID security group for an IT administration training environment.
+
+| Setting | Configuration |
+|---|---|
+| Group name | `IT Lab Administrators` |
+| Group type | Security |
+| Membership type | Assigned |
+| Direct members | `opettaja_1`, `opettaja_2`, `testi01` |
+| Total members | 3 |
+
+### Verification
+
+I navigated to **Microsoft Entra ID > Groups > IT Lab Administrators > Members** and confirmed that all three users appeared as direct members.
+
+### Screenshot
+
+![IT Lab Administrators - Group Members](screenshots/05-it-lab-administrators-members.png)
+
+### Security Consideration
+
+Adding users to a security group does not automatically grant permissions to Azure resources. Azure RBAC role assignments must be configured separately at an appropriate scope.
+
+No Azure RBAC role assignment was verified during this exercise.
+
+---
+
 # Assigned vs Dynamic Membership
 
 ## Assigned Membership

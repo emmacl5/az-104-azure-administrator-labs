@@ -135,26 +135,35 @@ I created a new cloud-only user with the following configuration.
 After the user was created, I refreshed the Users page and verified that the account appeared successfully.
 
 ---
-
 # Task 4 - Invite an External Guest User
 
-I reviewed the external user invitation page and configured the guest invitation.
+I configured and sent a Microsoft Entra B2B invitation to an external collaborator.
 
-The invitation included:
+| Setting | Verified result |
+|---|---|
+| Display name | `Manu` |
+| User type | Guest |
+| Invitation email | Enabled |
+| Group assignments | None |
+| Directory role assignments | None |
+| Guest account created | Yes |
+| Invitation acceptance | Not verified |
 
-| Setting | Value |
-|----------|-------|
-| User Type | Guest |
-| Invitation Email | Personal Email |
-| Job Title | IT Lab Administrator |
-| Department | IT |
-| Usage Location | United States |
+## Verification
 
-Guest users are commonly used for **Business-to-Business (B2B)** collaboration.
+I navigated to **Microsoft Entra ID > Users > All users** and verified that `Manu` appeared with **User type: Guest**.
 
-## Screenshot
+The account's presence confirms that the guest identity was created. It does not confirm that the invitation has been accepted.
 
-![Invite External User](screenshots/03-invite-external-user-form.png)
+## Screenshots
+
+![Guest invitation form](screenshots/03-invite-external-user-form.png)
+
+![Guest user verified](screenshots/06-guest-user-verified.png)
+
+## Security Considerations
+
+Inviting a guest does not automatically grant access to Azure resources. Azure RBAC permissions must be assigned separately at an appropriate scope.
 
 ---
 

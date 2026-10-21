@@ -237,7 +237,9 @@ Unlike Contributor, this role grants permissions specifically for Azure Blob Sto
 |----------|-------|
 | Role | Storage Blob Data Operator |
 | Principal | RBAC-Admins |
-| Scope | Storage Account |
+| Scope | Azure Files service (fileServices/default) |
+
+**Scope verification:** Azure Activity Log confirmed that the role assignment was successfully created on August 5, 2026 (HTTP 201). However, the assignment was scoped to the Azure Files service (`fileServices/default`), rather than the storage account itself. This distinction was discovered during a subsequent audit of the lab documentation. The assignment's current state has not been verified.
 
 ## Screenshot
 

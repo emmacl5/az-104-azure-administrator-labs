@@ -421,6 +421,53 @@ was not tested.
 
 ---
 
+# Task 10 - Verify Management Group RBAC Inheritance
+
+## Objective
+
+Verify that an Azure RBAC role assigned at management group scope
+is inherited by a subscription beneath that management group.
+
+## Steps Performed
+
+1. Confirmed that `Azure subscription 1` was initially under
+   the Tenant Root Group, alongside management group `az104-mg1`.
+2. Reviewed the existing Azure Policy and RBAC assignments.
+3. Moved `Azure subscription 1` under management group `az104-mg1`.
+4. Opened the subscription's Access control (IAM) page.
+5. Verified that `IT Lab Administrators` appeared with the
+   Virtual Machine Contributor role at an inherited management group scope.
+
+## Verification Result
+
+**Result: Passed**
+
+The subscription displayed the Virtual Machine Contributor assignment
+for `IT Lab Administrators` with the scope
+**Management group (Inherited)**.
+
+### Screenshot Evidence
+
+![Inherited RBAC assignment at subscription scope](screenshots/05-management-group-rbac-inheritance.png)
+
+## Important Distinction
+
+This exercise verified that the role assignment was inherited
+at subscription scope.
+
+It did not test whether a member of `IT Lab Administrators`
+could successfully create, modify, or delete a virtual machine.
+
+## Subscription Hierarchy After Testing
+
+```text
+Tenant Root Group
+└── az104-mg1
+    └── Azure subscription 1
+```
+
+---
+
 # Cleanup
 
 After completing this lab, remove temporary resources:
@@ -453,6 +500,6 @@ After completing this lab, remove temporary resources:
 - [x] Management Group `az104-mg1` Created
 - [x] Virtual Machine Contributor Assigned to `IT Lab Administrators`
 - [x] Management Group RBAC Assignment Verified
-- [ ] RBAC Inheritance to a Subscription Tested
+- [x] RBAC Inheritance to a Subscription Verified
 
 - [x] Cleanup Completed

@@ -8,7 +8,7 @@ MicrosoftLearning AZ-104 lab curriculum.
 | Lab | Topic | Status |
 | --- | --- | --- |
 | [01](labs/01-manage-entra-id-identities/README.md) | Manage Microsoft Entra ID identities | ✅ Completed |
-| [02a](labs/02a-manage-subscriptions-and-rbac/README.md) | Manage subscriptions and RBAC | 🔄 In progress |
+| [02a](labs/02a-manage-subscriptions-and-rbac/README.md) | Manage subscriptions and RBAC | ✅ Completed |
 | [02b](labs/02b-manage-governance-via-azure-policy/README.md) | Manage governance via Azure Policy | ⏳ Not verified |
 | [03](labs/03-manage-azure-resources/README.md) | Manage Azure resources using ARM templates | ⏳ Not verified |
 | [04](labs/04-implement-virtual-networking/README.md) | Implement virtual networking | ⏳ Not verified |

@@ -364,6 +364,63 @@ Remember these key concepts:
 
 ---
 
+# Task 9 - Create a Management Group and Assign RBAC
+
+## Objective
+
+Create an Azure management group and assign an Azure RBAC role
+at management group scope.
+
+## Management Group Configuration
+
+| Setting | Value |
+| --- | --- |
+| Management group ID | `az104-mg1` |
+| Parent | Tenant Root Group |
+| Subscriptions | 0 |
+
+## RBAC Role Assignment
+
+| Setting | Value |
+| --- | --- |
+| Security group | `IT Lab Administrators` |
+| Role | Virtual Machine Contributor |
+| Scope | Management group `az104-mg1` |
+| Assignment status | Verified in Access control (IAM) |
+
+## Steps Performed
+
+1. Opened **Management groups** in the Azure portal.
+2. Created management group `az104-mg1` under the Tenant Root Group.
+3. Opened **Access control (IAM)** for the management group.
+4. Assigned the **Virtual Machine Contributor** role to the
+   **IT Lab Administrators** security group.
+5. Verified the assignment in the **Role assignments** tab.
+
+## Verification
+
+The role assignment was visible at management group scope.
+
+### Evidence
+
+![Management group RBAC assignment](screenshots/04-management-group-rbac-assignment.png)
+
+**Important:** The management group contained zero subscriptions.
+Therefore, RBAC inheritance to a subscription or its resources
+was not tested.
+
+## What I Learned
+
+- Management groups organize Azure subscriptions into a hierarchy.
+- Azure RBAC assignments can be made at management group scope.
+- Permissions assigned at a management group can be inherited
+  by descendant subscriptions and resources.
+- Assigning a role does not prove effective access to resources
+  unless the relevant subscription hierarchy and permissions
+  are also verified.
+
+---
+
 # Cleanup
 
 After completing this lab, remove temporary resources:
@@ -393,4 +450,9 @@ After completing this lab, remove temporary resources:
 - [x] Storage Account Created
 - [x] Storage Blob Data Operator Assigned
 - [x] Verification Completed
+- [x] Management Group `az104-mg1` Created
+- [x] Virtual Machine Contributor Assigned to `IT Lab Administrators`
+- [x] Management Group RBAC Assignment Verified
+- [ ] RBAC Inheritance to a Subscription Tested
+
 - [x] Cleanup Completed

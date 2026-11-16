@@ -44,11 +44,45 @@ zones, and practice VM administration.
 
 ### VM 2: az104-vm1
 
-Not started.
+| Setting | Configuration |
+|---|---|
+| Name | `az104-vm1` |
+| Operating system | Windows Server 2025 Datacenter: Azure Edition |
+| Size | `Standard_D2as_v6` |
+| Availability zone | Zone 2 |
+| Virtual network | `vnet-eastus-1` |
+| Subnet | `snet-eastus-2` (`172.16.1.0/24`) |
+| OS disk | Premium SSD |
+| Public IP | None |
+| Public inbound ports | None |
+| Security | Trusted Launch, Secure Boot, vTPM |
+| Boot diagnostics | Enabled with managed storage |
+| Auto-shutdown | 19:00 Helsinki time |
+
+### Verification — VM 2
+
+- [x] Azure deployment completed successfully.
+- [x] VM power state verified as Running.
+- [x] Availability zone verified as Zone 2.
+- [x] VM agent status verified as Ready.
+- [x] Screenshot evidence captured.
+
+### Evidence — VM 2
+
+![az104-vm1 running in Availability Zone 2](screenshots/02-az104-vm1-running.png)
+
+### Lessons Learned
+
+- Azure VM size availability can differ between availability zones.
+- `Standard_D2s_v3` was unavailable in Zone 2, so an alternative SKU was selected.
+- Both VMs were deployed in East US across separate availability zones.
+- Both VMs use the same virtual network but different subnets.
+- Neither VM has a public IP address.
+
 
 ## Remaining Exercises
 
-- [ ] Deploy second VM in Availability Zone 2.
+- [x] Deploy second VM in Availability Zone 2.
 - [ ] Resize a virtual machine.
 - [ ] Manage VM data disks.
 - [ ] Deploy a Virtual Machine Scale Set.

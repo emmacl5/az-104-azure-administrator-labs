@@ -137,12 +137,86 @@ az vm get-instance-view --resource-group az104-rg8 --name az104-vm0 --query "ins
 - Deallocated VMs do not incur compute charges, although managed disks can still incur charges.
 - Vertical scaling changes a VM's CPU and memory allocation.
 
+## Task 3 — Manage Azure VM Data Disks
+
+### Objective
+
+Create and attach a managed data disk to `az104-vm0`, initialize it using GPT, and format it as an NTFS volume.
+
+### Data Disk Configuration
+
+| Property | Configuration |
+|---|---|
+| Virtual machine | `az104-vm0` |
+| Resource group | `az104-rg8` |
+| Disk name | `az104-vm0-datadisk0` |
+| Storage type | Standard HDD |
+| Disk capacity | 32 GiB |
+| LUN | 0 |
+| Windows disk number | 2 |
+| Partition style | GPT |
+| Drive letter | F: |
+| File system | NTFS |
+| Volume label | `AZ104-Data` |
+
+### Procedure
+
+1. Opened `az104-vm0` in Azure Portal.
+2. Navigated to **Settings → Disks**.
+3. Selected **Create and attach a new disk**.
+4. Configured a 32 GiB Standard HDD managed disk.
+5. Applied the configuration and verified the disk attachment.
+6. Started the virtual machine.
+7. Opened **Operations → Run command → RunPowerShellScript**.
+8. Identified Disk 2 as the new 32 GiB RAW disk.
+9. Initialized Disk 2 using GPT.
+10. Created a partition and formatted it as NTFS.
+11. Verified the new F: drive was healthy.
+12. Stopped and deallocated the VM to control costs.
+
+### PowerShell Commands
+
+```powershell
+# Identify the attached disks
+Get-Disk | Select-Object Number, FriendlyName, PartitionStyle, OperationalStatus, Size | Format-Table -AutoSize
+
+# Initialize the new data disk
+Initialize-Disk -Number 2 -PartitionStyle GPT
+
+# Verify GPT initialization
+Get-Disk -Number 2 | Select-Object Number, PartitionStyle, OperationalStatus, Size | Format-Table -AutoSize
+
+# Create and format the NTFS volume
+New-Partition -DiskNumber 2 -UseMaximumSize -DriveLetter F |
+    Format-Volume -FileSystem NTFS -NewFileSystemLabel "AZ104-Data" -Confirm:$false
+```
+
+### Verification
+
+- [x] Managed data disk created and attached successfully.
+- [x] Windows detected the new 32 GiB disk as Disk 2.
+- [x] Disk initialized using GPT.
+- [x] NTFS volume created with drive letter F:.
+- [x] Volume label verified as `AZ104-Data`.
+- [x] Health status verified as `Healthy`.
+- [x] Operational status verified as `OK`.
+- [x] VM deallocated after completing the exercise.
+
+### Lessons Learned
+
+- Azure managed disks can be attached to existing virtual machines.
+- Attaching a disk does not automatically initialize or format it inside Windows.
+- Azure Run Command allows remote PowerShell execution without a public IP address.
+- Disk numbers must be verified before performing initialization or formatting.
+- GPT is a modern partition style supported by Windows Server.
+- Managed disks continue to incur storage charges while a VM is deallocated.
+
 
 ## Remaining Exercises
 
 - [x] Deploy second VM in Availability Zone 2.
 - [x] Resize a virtual machine.
-- [ ] Manage VM data disks.
+- [x] Manage VM data disks.
 - [ ] Deploy a Virtual Machine Scale Set.
 - [ ] Configure autoscaling.
 - [ ] Document cleanup and lessons learned.

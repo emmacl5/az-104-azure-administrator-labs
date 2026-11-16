@@ -16,7 +16,7 @@ zones, and practice VM administration.
 ## Task 1 — Deploy Azure Virtual Machines Across Availability Zones
 
 ### VM 1: az104-vm0
-
+i
 | Setting | Configuration |
 |---|---|
 | Name | `az104-vm0` |
@@ -217,9 +217,43 @@ New-Partition -DiskNumber 2 -UseMaximumSize -DriveLetter F |
 - [x] Deploy second VM in Availability Zone 2.
 - [x] Resize a virtual machine.
 - [x] Manage VM data disks.
-- [ ] Deploy a Virtual Machine Scale Set.
+- [x] Deploy a Virtual Machine Scale Set.
 - [ ] Configure autoscaling.
 - [ ] Document cleanup and lessons learned.
+
+
+## Task 4 — Deploy an Azure Virtual Machine Scale Set
+
+**Status:** Completed
+
+Deployed `az104-vmss0` in resource group `az104-rg8` to practice horizontal scaling and autoscaling.
+
+| Setting | Configuration |
+|---|---|
+| Region | East US |
+| Orchestration mode | Uniform |
+| Image | Ubuntu Server 24.04 LTS (Gen2) |
+| VM size | Standard_D2as_v4 (2 vCPUs, 8 GiB RAM) |
+| Initial instance count | 1 |
+| Scaling mode | Manual |
+| Authentication | SSH public key (`azureuser`) |
+| Virtual network | `vnet-eastus-1` |
+| Subnet | `snet-eastus-1` (`172.16.0.0/24`) |
+| Public IP | None |
+| Load balancing | None |
+| OS disk | Premium SSD LRS |
+| Security | Trusted Launch, Secure Boot, vTPM |
+| Boot diagnostics | Enabled |
+
+**Verification:** Azure reported provisioning state `Succeeded` and `1 out of 1 instances running`.
+
+**Cost awareness:** The Azure Pricing Calculator estimated $0.096/hour per running instance for Linux compute, excluding managed disks and networking.
+
+![VM Scale Set deployment verified](screenshots/03-az104-vmss0-running.png)
+
+**Next:** Configure horizontal scaling and autoscaling.
+
+
 
 ## Status
 

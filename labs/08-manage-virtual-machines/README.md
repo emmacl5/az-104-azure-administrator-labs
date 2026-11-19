@@ -219,7 +219,7 @@ New-Partition -DiskNumber 2 -UseMaximumSize -DriveLetter F |
 - [x] Manage VM data disks.
 - [x] Deploy a Virtual Machine Scale Set.
 - [x] Configure autoscaling.
-- [ ] Document cleanup and lessons learned.
+- [x ] Document cleanup and lessons learned.
 
 
 ## Task 4 — Deploy an Azure Virtual Machine Scale Set
@@ -255,7 +255,6 @@ Deployed `az104-vmss0` in resource group `az104-rg8` to practice horizontal scal
 
 
 
-## Status
 
 ## Task 5 — Horizontal Scaling and Autoscaling
 
@@ -298,4 +297,33 @@ Configured **Custom autoscale** using Azure Monitor metrics.
 
 **Cost awareness:** Autoscaling can create additional billable VM instances. The scale set should be stopped or deleted after the lab to avoid unnecessary charges.
 
-In progress.
+
+
+## Task 6 — Resource Cleanup and Lessons Learned
+
+**Status:** Completed
+
+### Resource cleanup
+
+1. Changed `az104-vmss0` from Custom autoscale to Manual scale with one instance.
+2. Verified that `az104-vm0`, `az104-vm1`, and the remaining VMSS instance were stopped (deallocated).
+3. Reviewed the resources in `az104-rg8` before deletion.
+4. Deleted resource group `az104-rg8` and its 16 associated resources.
+5. Verified that `az104-rg8` no longer existed in the Azure Portal.
+
+**Cleanup result:** All Lab 08 Azure resources were removed. Screenshots and documentation were retained in GitHub.
+
+### Lessons learned
+
+- **Vertical scaling:** Changing VM size adjusts CPU and memory capacity.
+- **Horizontal scaling:** VM Scale Sets allow administrators to increase or decrease the number of VM instances.
+- **Autoscaling:** Azure Monitor can adjust VMSS capacity automatically using metric-based rules.
+- **Managed disks:** Data disks must be initialized and formatted inside the operating system before use.
+- **Networking:** Virtual machines can be deployed without public IP addresses.
+- **Cost management:** Deallocating VMs stops compute charges, but managed disks can continue incurring storage charges until deleted.
+
+**Verification note:** Manual horizontal scaling was tested. CPU-based autoscaling rules were configured and verified, but CPU-triggered scaling was not tested.
+
+## Status
+
+**Completed** — All Lab 08 exercises documented and Azure lab resources cleaned up.

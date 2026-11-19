@@ -1,4 +1,4 @@
-# AZ-104 Azure Administrator Labs
+w# AZ-104 Azure Administrator Labs
 
 Hands-on Microsoft Azure administration labs, organized around the
 MicrosoftLearning AZ-104 lab curriculum.
@@ -15,7 +15,7 @@ MicrosoftLearning AZ-104 lab curriculum.
 | [05](labs/05-implement-intersite-connectivity/README.md) | Implement intersite connectivity | ⏳ Not verified |
 | [06](labs/06-implement-traffic-management/README.md) | Implement network traffic management | ⏳ Not verified |
 | [07](labs/07-manage-azure-storage/README.md) | Manage Azure Storage | 🔄 Partially covered |
-| [08](labs/08-manage-virtual-machines/README.md) | Manage virtual machines | ⏳ Not verified |
+| [08](labs/08-manage-virtual-machines/README.md) | Manage virtual machines | Completed |
 | [09a](labs/09a-implement-web-apps/README.md) | Implement Web Apps | ⏳ Not verified |
 | [09b](labs/09b-implement-azure-container-instances/README.md) | Implement Azure Container Instances | ⏳ Not verified |
 | [10](labs/10-implement-data-protection/README.md) | Implement data protection | ⏳ Not verified |

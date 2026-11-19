@@ -218,7 +218,7 @@ New-Partition -DiskNumber 2 -UseMaximumSize -DriveLetter F |
 - [x] Resize a virtual machine.
 - [x] Manage VM data disks.
 - [x] Deploy a Virtual Machine Scale Set.
-- [ ] Configure autoscaling.
+- [x] Configure autoscaling.
 - [ ] Document cleanup and lessons learned.
 
 
@@ -256,5 +256,46 @@ Deployed `az104-vmss0` in resource group `az104-rg8` to practice horizontal scal
 
 
 ## Status
+
+## Task 5 — Horizontal Scaling and Autoscaling
+
+**Status:** Completed
+
+### Manual horizontal scaling
+
+Scaled `az104-vmss0` from 1 to 2 VM instances using **Availability + scale → Scaling** in the Azure Portal.
+
+Verified that both instances were running and had provisioning state `Succeeded`:
+
+- `az104-vmss0_0`
+- `az104-vmss0_1`
+
+After verification, scaled the VMSS back down from 2 to 1 instance to reduce compute costs.
+
+![Horizontal scaling verified](screenshots/04-az104-vmss0-horizontal-scaling.png)
+
+### CPU-based autoscaling
+
+Configured **Custom autoscale** using Azure Monitor metrics.
+
+| Setting | Configuration |
+|---|---|
+| Metric | Percentage CPU |
+| Scale-out condition | Average CPU greater than 70% for 10 minutes |
+| Scale-out action | Increase instance count by 1 |
+| Scale-in condition | Average CPU less than 30% for 10 minutes |
+| Scale-in action | Decrease instance count by 1 |
+| Cooldown | 5 minutes for each rule |
+| Minimum instances | 1 |
+| Maximum instances | 2 |
+| Default instances | 1 |
+
+**Verification:** Azure confirmed that the autoscaling configuration was saved successfully. After refreshing the Scaling page, Custom autoscale remained selected and both rules were visible.
+
+**Note:** The autoscaling rules were configured and verified, but an actual CPU-triggered scaling event was not tested.
+
+![CPU-based autoscaling configuration](screenshots/05-az104-vmss0-autoscaling.png)
+
+**Cost awareness:** Autoscaling can create additional billable VM instances. The scale set should be stopped or deleted after the lab to avoid unnecessary charges.
 
 In progress.

@@ -1,4 +1,5 @@
-w# AZ-104 Azure Administrator Labs
+
+# AZ-104 Azure Administrator Labs
 
 Hands-on Microsoft Azure administration labs, organized around the
 MicrosoftLearning AZ-104 lab curriculum.
@@ -10,7 +11,8 @@ MicrosoftLearning AZ-104 lab curriculum.
 | [01](labs/01-manage-entra-id-identities/README.md) | Manage Microsoft Entra ID identities | ✅ Completed |
 | [02a](labs/02a-manage-subscriptions-and-rbac/README.md) | Manage subscriptions and RBAC | ✅ Completed |
 | [02b](labs/02b-manage-governance-via-azure-policy/README.md) | Manage governance via Azure Policy | ⏳ Not verified |
-| [03](labs/03-manage-azure-resources/README.md) | Manage Azure resources using ARM templates | ⏳ Not verified |
+| [03a](labs/03-manage-azure-resources/README.md) | Manage Azure resources | ⏳ Not verified |
+| [03b](labs/03b-manage-azure-resources-using-arm-templates/README.md) | Manage Azure resources using ARM templates and Bicep | ✅ Completed |
 | [04](labs/04-implement-virtual-networking/README.md) | Implement virtual networking | ⏳ Not verified |
 | [05](labs/05-implement-intersite-connectivity/README.md) | Implement intersite connectivity | ⏳ Not verified |
 | [06](labs/06-implement-traffic-management/README.md) | Implement network traffic management | ⏳ Not verified |
@@ -24,4 +26,7 @@ MicrosoftLearning AZ-104 lab curriculum.
 ## Reference
 
 Official MicrosoftLearning AZ-104 labs:
+
 https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator
+
+
